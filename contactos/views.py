@@ -6,7 +6,13 @@ from .forms import ContactoForm
 
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
-from .serializers import GroupSerializer, UserSerializer
+from .serializers import GroupSerializer, UserSerializer, ContactoSerializer
+
+class ContactoViewSet(viewsets.ModelViewSet):
+    queryset = Contacto.objects.all().order_by("nombre")
+    serializer_class = ContactoSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by("-date_joined")

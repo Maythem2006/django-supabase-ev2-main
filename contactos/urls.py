@@ -5,6 +5,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
 router.register(r"groups", views.GroupViewSet)
+router.register(r"Contacto", views.ContactoViewSet)
 #Configurar URLs
 urlpatterns = [
     path("api/", include(router.urls)),
